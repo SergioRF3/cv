@@ -90,7 +90,7 @@
         btnEn.classList.add('active');
         btnEs.classList.remove('active');
       } else {
-        viewer.src = './cv-es.pdf';
+        viewer.src = './sergio-ruiz-frances-ingeniero-software-cv.pdf.pdf';
         downloadLink.href = './sergio-ruiz-frances-ingeniero-software-cv.pdf';
         downloadLink.download = 'sergio-ruiz-frances-ingeniero-software-cv.pdf';
         downloadLink.textContent = 'Descargar PDF';
@@ -98,6 +98,16 @@
         btnEn.classList.remove('active');
       }
     }
+    window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const langParam = params.get('lang');
+
+    if (langParam === 'en') {
+      setLanguage('en');
+    } else {
+      setLanguage('es');
+    }
+  });
   </script>
 </body>
 </html>
