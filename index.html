@@ -12,23 +12,30 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       display: flex;
       flex-direction: column;
-      height: 100vh;
+      min-height: 100vh;
       background: #f4f4f9;
     }
     .header {
-      padding: 10px 14px;
+      padding: 10px 16px;
       background: #ffffff;
       box-shadow: 0 1px 4px rgba(0,0,0,0.1);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
       z-index: 10;
-      gap: 8px;
+      gap: 12px;
     }
     .controls-left {
       display: flex;
       align-items: center;
       gap: 6px;
+    }
+    .controls-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
     .lang-btn {
       border: 1px solid #d0d7de;
@@ -40,6 +47,9 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s ease;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
     }
     .lang-btn.active {
       background: #24292f;
@@ -49,52 +59,89 @@
     .btn-download {
       background: #0969da;
       color: #ffffff;
-      padding: 7px 14px;
+      padding: 0 14px;
       border-radius: 6px;
       text-decoration: none;
       font-size: 13px;
       font-weight: 600;
       white-space: nowrap;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      transition: background 0.15s ease;
     }
-    iframe {
-      flex: 1;
+    .btn-download:hover {
+      background: #0856b3;
+    }
+    .contact-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 6px;
+      background: #f6f8fa;
+      color: #0969da;
+      border: 1px solid #d0d7de;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .icon-btn:hover,
+    .icon-btn:active {
+      background: #0969da;
+      color: #ffffff;
+      border-color: #0969da;
+    }
+    .cv-image {
       width: 100%;
-      height: calc(100vh - 52px);
-      border: none;
+      height: auto;
+      max-width: 800px;
+      display: block;
+      margin: 14px auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border-radius: 4px;
     }
   </style>
 </head>
 <body>
   <div class="header">
-  <div class="controls-left">
-    <button class="lang-btn active" id="btn-es" onclick="setLanguage('es', true)">ES</button>
-    <button class="lang-btn" id="btn-en" onclick="setLanguage('en', true)">EN</button>
+    <div class="controls-left">
+      <button class="lang-btn active" id="btn-es" onclick="setLanguage('es', true)">ES</button>
+      <button class="lang-btn" id="btn-en" onclick="setLanguage('en', true)">EN</button>
+    </div>
+
+    <div class="controls-right">
+      <a href="" download="" id="download-link" class="btn-download">Descargar PDF</a>
+
+      <div class="contact-bar">
+        <a href="https://www.linkedin.com/in/sergioruizf" target="_blank" rel="noopener" class="icon-btn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+          </svg>
+        </a>
+        <a href="tel:+34633826372" class="icon-btn" aria-label="Llamar">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          </svg>
+        </a>
+        <a href="mailto:sergio.ruiz.frances@gmail.com" class="icon-btn" aria-label="Email">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
   </div>
 
-  <div class="contact-bar">
-    <a href="https://www.linkedin.com/in/sergioruizf" target="_blank" rel="noopener" class="icon-btn" aria-label="LinkedIn">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-      </svg>
-    </a>
-    <a href="tel:+34633826372" class="icon-btn" aria-label="Llamar">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-        <path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-      </svg>
-    </a>
-    <a href="mailto:sergio.ruiz.frances@gmail.com" class="icon-btn" aria-label="Email">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-      </svg>
-    </a>
-  </div>
-    <a href="" download="" id="download-link" class="btn-download">Descargar PDF</a>
-  </div>
+  <img id="pdf-viewer" class="cv-image" src="" alt="CV Sergio Ruiz Francés">
 
-  <img id="pdf-viewer" src="" alt="CV Sergio" style="width: 100%; height: auto; max-width: 800px; display: block; margin: 0 auto;">
-  
   <script>
-    function setLanguage(lang) {
+    function setLanguage(lang, updateUrl = false) {
       const viewer = document.getElementById('pdf-viewer');
       const downloadLink = document.getElementById('download-link');
       const btnEs = document.getElementById('btn-es');
@@ -115,17 +162,23 @@
         btnEs.classList.add('active');
         btnEn.classList.remove('active');
       }
-      const newUrl = `${window.location.pathname}?lang=${lang}`;
-      window.history.replaceState(null, '', newUrl);
+
+      if (updateUrl) {
+        const newUrl = `${window.location.pathname}?lang=${lang}`;
+        window.history.replaceState(null, '', newUrl);
+      }
     }
+
     window.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
       const langParam = params.get('lang');
-  
+
       if (langParam === 'en') {
-        setLanguage('en');
+        setLanguage('en', false);
+      } else if (langParam === 'es') {
+        setLanguage('es', false);
       } else {
-        setLanguage('es');
+        setLanguage('es', false);
       }
     });
   </script>
