@@ -70,11 +70,11 @@
       <button class="lang-btn active" id="btn-es" onclick="setLanguage('es')">ES</button>
       <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
     </div>
-    <a href="./sergio-ruiz-frances-ingeniero-software-cv.pdf" download="sergio-ruiz-frances-ingeniero-software-cv.pdf" id="download-link" class="btn-download">Descargar PDF</a>
+    <a href="" download="" id="download-link" class="btn-download">Descargar PDF</a>
   </div>
 
-  <iframe id="pdf-viewer" src="./sergio-ruiz-frances-ingeniero-software-cv.pdf"></iframe>
-
+  <img id="pdf-viewer" src="" alt="CV Sergio" style="width: 100%; height: auto; max-width: 800px; display: block; margin: 0 auto;">
+  
   <script>
     function setLanguage(lang) {
       const viewer = document.getElementById('pdf-viewer');
@@ -83,14 +83,14 @@
       const btnEn = document.getElementById('btn-en');
 
       if (lang === 'en') {
-        viewer.src = './sergio-ruiz-frances-software-engineer-cv.pdf';
+        viewer.src = './sergio-ruiz-frances-software-engineer-cv.png';
         downloadLink.href = './sergio-ruiz-frances-software-engineer-cv.pdf';
         downloadLink.download = 'sergio-ruiz-frances-software-engineer-cv.pdf';
         downloadLink.textContent = 'Download PDF';
         btnEn.classList.add('active');
         btnEs.classList.remove('active');
       } else {
-        viewer.src = './sergio-ruiz-frances-ingeniero-software-cv.pdf';
+        viewer.src = './sergio-ruiz-frances-ingeniero-software-cv.png';
         downloadLink.href = './sergio-ruiz-frances-ingeniero-software-cv.pdf';
         downloadLink.download = 'sergio-ruiz-frances-ingeniero-software-cv.pdf';
         downloadLink.textContent = 'Descargar PDF';
