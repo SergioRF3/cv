@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Sergio Ruiz</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      background: #f4f4f9;
+    }
+    .header {
+      padding: 10px 14px;
+      background: #ffffff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+      gap: 8px;
+    }
+    .controls-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .lang-btn {
+      border: 1px solid #d0d7de;
+      background: #f6f8fa;
+      color: #24292f;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .lang-btn.active {
+      background: #24292f;
+      color: #ffffff;
+      border-color: #24292f;
+    }
+    .btn-download {
+      background: #0969da;
+      color: #ffffff;
+      padding: 7px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    iframe {
+      flex: 1;
+      width: 100%;
+      height: calc(100vh - 52px);
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="controls-left">
+      <button class="lang-btn active" id="btn-es" onclick="setLanguage('es')">ES</button>
+      <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+    </div>
+    <a href="./sergio-ruiz-frances-ingeniero-software-cv.pdf" download="sergio-ruiz-frances-ingeniero-software-cv.pdf" id="download-link" class="btn-download">Descargar PDF</a>
+  </div>
+
+  <iframe id="pdf-viewer" src="./cv-es.pdf"></iframe>
+
+  <script>
+    function setLanguage(lang) {
+      const viewer = document.getElementById('pdf-viewer');
+      const downloadLink = document.getElementById('download-link');
+      const btnEs = document.getElementById('btn-es');
+      const btnEn = document.getElementById('btn-en');
+
+      if (lang === 'en') {
+        viewer.src = './sergio-ruiz-frances-software-engineer-cv.pdf';
+        downloadLink.href = './sergio-ruiz-frances-software-engineer-cv.pdf';
+        downloadLink.download = 'CV_Sergio_Ruiz_EN.pdf';
+        downloadLink.textContent = 'Download PDF';
+        btnEn.classList.add('active');
+        btnEs.classList.remove('active');
+      } else {
+        viewer.src = './cv-es.pdf';
+        downloadLink.href = './sergio-ruiz-frances-ingeniero-software-cv.pdf';
+        downloadLink.download = 'sergio-ruiz-frances-ingeniero-software-cv.pdf';
+        downloadLink.textContent = 'Descargar PDF';
+        btnEs.classList.add('active');
+        btnEn.classList.remove('active');
+      }
+    }
+  </script>
+</body>
+</html>
